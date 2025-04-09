@@ -4,7 +4,8 @@
 
 Este proyecto implementa un formulario de registro interactivo para la participación de equipos en la Liga Nacional de Robótica (LNR) 2025. El formulario permite a estudiantes y escuelas inscribirse en diferentes categorías de competencia robótica con una interfaz moderna, validaciones en tiempo real y efecto visual estilo neón.
 
-![Vista previa del formulario](![image](https://github.com/user-attachments/assets/0c3c237d-33b9-471e-817c-e0a20b8b129b))
+![Vista previa del formulario](![image](https://github.com/user-attachments/assets/0c3c237d-33b9-471e-817c-e0a20b8b129b)
+)
 
 ## ✨ Características
 
@@ -52,7 +53,8 @@ El formulario está completamente adaptado para distintos dispositivos:
 - **Tablet**: Ajuste de grids a 2 columnas 
 - **Mobile**: Layout de una columna, ajustes de tamaño y distribución
 
-![Responsive views](![image](https://github.com/user-attachments/assets/058c2a3a-da50-429c-a146-fe3883faaee4))
+![Responsive views](![image](https://github.com/user-attachments/assets/058c2a3a-da50-429c-a146-fe3883faaee4)
+)
 
 ## 🚀 Instrucciones de instalación
 
