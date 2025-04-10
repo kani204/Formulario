@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario LNR - Campeonato de Robótica</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <h1>Liga Nacional de Robótica</h1>
+            <h2>Formulario de Registro de Equipos 2025</h2>
+        </header>
+        
+        <form id="formularioRegistro">
+            <section class="seccion-datos">
+                <h3>Datos del Equipo</h3>
+                
+                <div class="campo">
+                    <label for="nombreEquipo">Nombre del Equipo *</label>
+                    <input type="text" id="nombreEquipo" name="nombreEquipo" maxlength="30" required>
+                    <span class="mensaje-error" id="errorNombreEquipo"></span>
+                </div>
+                
+                <div class="campo">
+                    <label for="institucion">Escuela/Institución *</label>
+                    <select id="institucion" name="institucion" required>
+                        <option value="">Seleccione una institución</option>
+                        <option value="EEST1">EEST N°1 Eduardo Ader</option>
+                        <option value="EEST2">EEST N°2 Vicente López</option>
+                        <option value="ET28">ET N°28 República Francesa</option>
+                        <option value="ET33">ET N°33 Fundición Maestranza del Plumerillo</option>
+                        <option value="ET37">ET N°37 Hogar Naval Stella Maris</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <div class="campo" id="otraInstitucion" style="display: none;">
+                        <input type="text" id="institucionOtra" name="institucionOtra" placeholder="Nombre de la institución">
+                    </div>
+                </div>
+                
+                <div class="campo">
+                    <label for="emailResponsable">Email del Responsable *</label>
+                    <input type="email" id="emailResponsable" name="emailResponsable" required>
+                    <span class="mensaje-error" id="errorEmail"></span>
+                </div>
+                
+                <div class="campo">
+                    <label for="fotoPerfil">Foto del Equipo *</label>
+                    <input type="file" id="fotoPerfil" name="fotoPerfil" accept="image/jpeg, image/png" required>
+                    <div id="previewFoto" class="preview-imagen"></div>
+                    <span class="mensaje-error" id="errorFoto"></span>
+                </div>
+            </section>
+            
+            <section class="seccion-estudiantes">
+                <h3>Datos de Estudiantes del Equipo</h3>
+                
+                <div id="contenedorEstudiantes">
+                    <div class="estudiante">
+                        <div class="campo">
+                            <label>Estudiante 1 *</label>
+                            <input type="text" name="estudianteNombre[]" placeholder="Nombre y Apellido" required>
+                        </div>
+                        <div class="campo">
+                            <input type="number" name="estudianteDNI[]" placeholder="DNI" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" id="agregarEstudiante" class="boton-secundario">
+                    <i class="fas fa-plus"></i> Agregar Estudiante
+                </button>
+            </section>
+            
+            <section class="seccion-categorias">
+                <h3>Categorías de Competencia *</h3>
+                <p class="instrucciones">Selecciona al menos una categoría</p>
+                
+                <div class="grid-categorias">
+                    <div class="categoria">
+                        <input type="checkbox" id="categoriaSumo" name="categorias[]" value="sumo" class="categoria-checkbox">
+                        <label for="categoriaSumo" class="etiqueta-categoria" title="Robots que compiten para sacar al oponente del ring">Sumo</label>
+                    </div>
+                    
+                    <div class="categoria">
+                        <input type="checkbox" id="categoriaMinisumo" name="categorias[]" value="minisumo" class="categoria-checkbox">
+                        <label for="categoriaMinisumo" class="etiqueta-categoria" title="Versión más pequeña del sumo robótico">Minisumo</label>
+                    </div>
+                    
+                    <div class="categoria">
+                        <input type="checkbox" id="categoriaCarrera" name="categorias[]" value="carrera" class="categoria-checkbox">
+                        <label for="categoriaCarrera" class="etiqueta-categoria" title="Robots que compiten en pista de carreras">🏎️ Carrera</label>
+                    </div>
+                    
+                    <div class="categoria">
+                        <input type="checkbox" id="categoriaFutbol" name="categorias[]" value="futbol" class="categoria-checkbox">
+                        <label for="categoriaFutbol" class="etiqueta-categoria" title="Robots que juegan al fútbol">⚽ Fútbol</label>
+                    </div>
+                    
+                    <div class="categoria">
+                        <input type="checkbox" id="categoriaLaberinto" name="categorias[]" value="laberinto" class="categoria-checkbox">
+                        <label for="categoriaLaberinto" class="etiqueta-categoria" title="Robots que resuelven laberintos">Laberinto</label>
+                    </div>
+                    
+                    <div class="categoria">
+                        <input type="checkbox" id="categoriaMicrosumo" name="categorias[]" value="microsumo" class="categoria-checkbox">
+                        <label for="categoriaMicrosumo" class="etiqueta-categoria" title="Versión micro del sumo robótico">Microsumo</label>
+                    </div>
+                </div>
+                <span class="mensaje-error" id="errorCategorias"></span>
+            </section>
+            
+            <section class="seccion-documentacion">
+                <h3>Documentación Técnica</h3>
+                
+                <div class="campo">
+                    <label for="disenioRobot">Diseño del Robot (PDF/JPG/PNG, máx. 5MB)</label>
+                    <input type="file" id="disenioRobot" name="disenioRobot" accept=".pdf, .jpg, .jpeg, .png">
+                    <div id="previewDisenio" class="preview-archivo"></div>
+                    <span class="mensaje-error" id="errorDisenio"></span>
+                </div>
+                
+                <div class="campo" id="campoSeguridad" style="display: none;">
+                    <label for="certificadoSeguridad">Certificado de Seguridad (PDF, obligatorio para Sumo/Minisumo) *</label>
+                    <input type="file" id="certificadoSeguridad" name="certificadoSeguridad" accept=".pdf">
+                    <div id="previewCertificado" class="preview-archivo"></div>
+                    <span class="mensaje-error" id="errorCertificado"></span>
+                </div>
+            </section>
+            
+            <section class="seccion-terminos">
+                <div class="campo-checkbox">
+                    <input type="checkbox" id="aceptoReglas" name="aceptoReglas" required class="checkbox-reglas">
+                    <label for="aceptoReglas">Acepto las reglas del campeonato LNR *</label>
+                </div>
+                <span class="mensaje-error" id="errorReglas"></span>
+            </section>
+            
+            <div class="botones">
+                <button type="button" id="borrarFormulario" class="boton-reset">
+                    <i class="fas fa-trash"></i> Borrar Formulario
+                </button>
+                <button type="submit" id="registrarEquipo" class="boton-enviar" disabled>
+                    <i class="fas fa-robot"></i> Registrar Equipo
+                </button>
+            </div>
+            
+            <div id="contadorEquipos" class="contador">
+                Equipos registrados: <span id="numeroEquipos">0</span>
+            </div>
+        </form>
+        
+        <footer>
+            <p>EEST N°1 "Eduardo Ader" Vicente López - 7° 2° - 2025</p>
+        </footer>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
